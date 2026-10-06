@@ -1,0 +1,32 @@
+// --- LIBRERÍA: BARRA DE CARGA PARA CLOWNCODE ---
+
+function iniciarCarga()
+    // Obtener valores personalizados o usar unos por defecto
+    local colFondo = imported.backround.color
+    if colFondo == nil then
+        colFondo = "#222222"
+    end
+
+    local colBarra = imported.bar.color
+    if colBarra == nil then
+        colBarra = "#00FFCC"
+    end
+
+    local vel = imported.speed
+    if vel == nil then
+        vel = 20
+    end
+
+    // Dibujar elementos en pantalla
+    cls("#0A0A0A")
+    rect(30, 90, 140, 18, colFondo)
+
+    local actual = 0
+    while actual < 140 do
+        actual = actual + 10
+        rect(30, 90, actual, 18, colBarra)
+        sleep(vel)
+    end
+
+    print("¡Carga completada con éxito!")
+end
